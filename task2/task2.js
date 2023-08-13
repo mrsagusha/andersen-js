@@ -1,4 +1,14 @@
+const isParamValid = (param) => {
+  return !isNaN(param) && typeof param === 'number';
+};
+
 const makeObjectDeepCopy = (obj) => {
+  const isObject = obj && typeof obj === 'object' && !Array.isArray(obj);
+
+  if (!isObject) {
+    throw new Error('Not object!');
+  }
+
   const cloneObject = {};
 
   for (let key in obj) {
@@ -10,19 +20,15 @@ const makeObjectDeepCopy = (obj) => {
 };
 
 const selectFromInterval = (array, start, end) => {
-  const checkIsArrayValid = (array) => {
-    return array.some((el) => typeof el !== 'number') ? true : false;
+  const isArrayValid = (array) => {
+    return array.some((el) => typeof el !== 'number');
   };
 
-  const checkIsParamValid = (param) => {
-    return !isNaN(param) && typeof param === 'number' ? true : false;
-  };
-
-  if (!Array.isArray(array) || checkIsArrayValid(array)) {
+  if (!Array.isArray(array) || isArrayValid(array)) {
     throw new Error('Invalid array!');
   }
 
-  if (!checkIsParamValid(start) || !checkIsParamValid(end)) {
+  if (!isParamValid(start) || !isParamValid(end)) {
     throw new Error('Invalid params!');
   }
 
@@ -37,15 +43,11 @@ const selectFromInterval = (array, start, end) => {
 const myIterable = { from: 1, to: 5 };
 
 myIterable[Symbol.iterator] = function () {
-  const checkIsParamValid = (param) => {
-    return !isNaN(param) && typeof param === 'number' ? true : false;
-  };
-
   if (!this.from || !this.to) {
     throw new Error(`The interval isn't set!`);
   }
 
-  if (!checkIsParamValid(this.from) || !checkIsParamValid(this.to)) {
+  if (!isParamValid(this.from) || !isParamValid(this.to)) {
     throw new Error('Params are not valid!');
   }
 
