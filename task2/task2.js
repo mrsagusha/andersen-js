@@ -3,17 +3,16 @@ const isParamValid = (param) => {
 };
 
 const makeObjectDeepCopy = (obj) => {
-  const isObject = obj && typeof obj === 'object' && !Array.isArray(obj);
-
-  if (!isObject) {
-    throw new Error('Not object!');
-  }
+  const isObject = (obj) => {
+    return obj && typeof obj === 'object' && !Array.isArray(obj);
+  };
 
   const cloneObject = {};
 
   for (let key in obj) {
-    cloneObject[key] =
-      obj[key] instanceof Object ? makeObjectDeepCopy(obj[key]) : obj[key];
+    cloneObject[key] = isObject(obj[key])
+      ? makeObjectDeepCopy(obj[key])
+      : obj[key];
   }
 
   return cloneObject;
