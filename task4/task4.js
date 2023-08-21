@@ -31,10 +31,6 @@ class Calculator {
     this.logDiv = this.logDiv.bind(this);
   }
 
-  isValidNumber(num) {
-    return typeof num === 'number' && !isFinite(num) && !isNaN(num);
-  }
-
   setX(num) {
     if (!num || !isValidNumber(num)) {
       throw new Error('Invalid number!');
