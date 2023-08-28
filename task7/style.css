@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Arial, Helvetica, sans-serif;
+    transition: .2s;
+}
+
+.calculator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 17rem;
+    height: fit-content;
+
+    margin: auto;
+    border: 2px solid #004290;
+    border-radius: 0.5rem;
+    background-color: #e8f5ff;
+}
+
+.screen {
+    display: flex;
+    flex-direction: column;
+
+    width: 90%;
+    height: fit-content;
+
+    margin-top: 1rem;
+    padding: 0.2rem 0.5rem;
+    border: 2px solid #989898;
+    border-radius: 0.5rem;
+    background-color: white;
+}
+
+.screen__top {
+    display: flex;
+
+    color: #c5c6c7;
+    font-size: 0.8rem;
+}
+
+.screen__main {
+    display: flex;
+    justify-content: end;
+    font-size: 2.5rem;
+
+    min-height: 2.063rem;
+    line-height: 0.8;
+    border-bottom: 1px solid #989898;
+}
+
+.screen__bottom {
+    display: flex;
+    justify-content: end;
+
+    color: #c5c6c7;
+    font-size: 0.8rem;
+}
+
+.buttons {
+    width: 90%;
+}
+
+.buttons__memory {
+    display: flex;
+    gap: 0.25rem;
+
+    padding: 0.5rem 0;
+    color: #c5c6c7;
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+.buttons__main {
+    display: grid;
+    gap: 0.5rem;
+
+    margin-bottom: 1rem;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.7rem;
+
+    background-color: #eeeeee;
+    border: 1px solid #e1dfde;
+    border-radius: 0.3rem;
+    color: #00348f;
+    font-size: 1.5rem;
+    font-weight: 600;
+    transition: .2s;
+}
+
+.button:hover {
+    background-color: #dadada;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.sign {
+    background-color: #7f7f7f;
+    font-size: 1rem;
+    color: white;
+}
+
+.sign:hover {
+    background-color: #555555;
+}
+
+.equal {
+    grid-row-start: 3;
+    grid-row-end: 5;
+    grid-column-start: 5;
+    height: 100%;
+
+    background-color: #005db2;
+}
+
+.equal:hover {
+    background-color: #003f7a;
+}
+
+.clear {
+    background-color: red;
+    color: white;
+    font-weight: 400;
+}
+
+.clear:hover {
+    background-color: rgb(192, 0, 0);
+}
